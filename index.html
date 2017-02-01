@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Lucky's VC compatible fully customizable, easily reconfigurable, beginner friendly Pok&eacute;mon&trade; farming setup designed for Pok&eacute;bank&trade; transfers</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Oswald" rel="stylesheet" />
+<link href="styles.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="main.js"></script>
+<script src="data.js"></script>
+</head>
+<body>
+<div id="container">
+<h1>Lucky's VC compatible fully customizable, easily reconfigurable, beginner friendly Pok&eacute;mon&trade; farming setup designed for Pok&eacute;bank&trade; transfers (aka the Ultimate Pok&eacute;bank Farming Setup. Ever.&trade;)</h1>
+<h2>Resources</h2>
+<ul>
+<li><a href="#">Reddit Thread</a></li>
+<li><a href="#">Text Tutorial</a></li>
+<li><a href="#">Video Tutorial</a></li>
+</ul>
+<h2>Nickname generator</h2>
+<fieldset>
+<legend>General</legend>
+<span class="label">Pok&eacute;mon species</span><select id="mon-id"></select> Sort by:
+<label><input type="radio" name="mon-id-sort" value="dex" checked /> Pok&eacute;dex</label>
+<label><input type="radio" name="mon-id-sort" value="az" /> Alphabetically</label>
+<label><input type="radio" name="mon-id-sort" value="internal" /> Internal index</label><br />
+<span class="label">Level</span><input type="number" id="level" min="1" max="100" value="100" /><br />
+<span class="label">Nature</span><select id="nature">
+<option value="0">Hardy</option>
+<option value="1">Lonely</option>
+<option value="2">Brave</option>
+<option value="3">Adamant</option>
+<option value="4">Naughty</option>
+<option value="5">Bold</option>
+<option value="6">Docile</option>
+<option value="7">Relaxed</option>
+<option value="8">Impish</option>
+<option value="9">Lax</option>
+<option value="10">Timid</option>
+<option value="11">Hasty</option>
+<option value="12">Serious</option>
+<option value="13">Jolly</option>
+<option value="14">Na&iuml;ve</option>
+<option value="15">Modest</option>
+<option value="16">Mild</option>
+<option value="17">Quiet</option>
+<option value="18">Bashful</option>
+<option value="19">Rash</option>
+<option value="20">Calm</option>
+<option value="21">Gentle</option>
+<option value="22">Sassy</option>
+<option value="23">Careful</option>
+<option value="24">Quirky</option>
+</select><br />
+<label><span class="label">OT ID</span><input type="text" id="otid"  maxlength="5" /></label>Leave empty for any TID (easier nicknames). Enter 22796 for a legit&trade; Mew<br />
+</fieldset>
+<fieldset>
+<legend>DVs (generation I and II equivalent of IVs)</legend>
+<label><input type="checkbox" id="adv" />Advanced mode</label><br />
+<label><input type="checkbox" id="shiny" />Shiny</label>
+<div id="advanced-mode">
+<p><b>Warning:</b>The Pok&eacute;bank only uses DVs for determining shininess and generates new IVs during the transfer (probably because special is split into special attack and special defense, there is a separate value for HP and they range from 0 to 31 instead of 0 to 15 generation III onwards). The option for configuring DVs is provided in case Nintendo/Game Freak changes the formulas or you want to use this setup for other purposes than Pok&eacute;bank. Also, the Pok&eacute;bank uses a similar, but not the same method as generation II games for determining shininess. Only the 10/10/10/10 combination works in both.</p>
+<span class="label">Attack DV</span><input type="number" id="atk-dv" min="0" max="15" value="15" /><br />
+<span class="label">Defense DV</span><input type="number" id="def-dv" min="0" max="15" value="15" /><br />
+<span class="label">Speed DV</span><input type="number" id="spd-dv" min="0" max="15" value="15" /><br />
+<span class="label">Special DV</span><input type="number" id="spc-dv" min="0" max="15" value="15" /><br />
+</div>
+</fieldset>
+<fieldset>
+<legend>Moves</legend>
+<span class="label">Move 1</span><select id="move1" class="move"></select><br />
+<span class="label">Move 2</span><select id="move2" class="move"></select><br />
+<span class="label">Move 3</span><select id="move3" class="move"></select><br />
+<span class="label">Move 4</span><select id="move4" class="move"></select><br />
+</fieldset>
+<fieldset>
+<legend>Nicknames</legend>
+<p><b>Note:</b> The <span class="nick">×</span> character is used to signify the multiply symbol available in the first column of the fourth row of the naming screen, just above the dash (<span class="nick">-</span>) symbol. The <span class="nick">&blank;</span> character is used to signify the whitespace available in the last column of the third row, below the letter R and to the right of the letter Z. In case of any doubts please refer to this reconstruction of the naming screen with your browser's font:</p>
+<div id="naming" class="nick"></div><br />
+Nickname 1: <span id="n1" class="nick"><sup>M</sup><sub>N</sub>&blank;×LuKypLS</span><br />
+Nickname 2: <span id="n2" class="nick"></span><br />
+Nickname 3: <span id="n3" class="nick"></span><br />
+Nickname 4: <span class="gray nick">&lt;insert nickname of the resulting pok&eacute;mon&gt;</span><br />
+Nickname 5: <span class="gray nick">&lt;insert the name of the OT&gt; (GF for a legit Mew)</span><br />
+</fieldset>
+</div>
+</body>
+</html>
