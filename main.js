@@ -87,6 +87,21 @@ function recalculate(){
 		return;
 	}
 
+	if(move[1] != 0 && (move[1] == move[0])){
+		qError($('#move2'), 'No duplicates can exist in the moveset');
+		return;
+	}
+
+	if(move[2] != 0 && (move[2] == move[0] || move[2] == move[1])){
+		qError($('#move3'), 'No duplicates can exist in the moveset');
+		return;
+	}
+
+	if(move[3] != 0 && (move[3] == move[0] || move[3] == move[1] || move[3] == move[2])){
+		qError($('#move4'), 'No duplicates can exist in the moveset');
+		return;
+	}
+
 	console.log('done');
 }
 
