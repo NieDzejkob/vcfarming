@@ -4,8 +4,10 @@
 <meta charset="utf-8" />
 <title>Lucky's VC compatible fully customizable, easily reconfigurable, beginner friendly Pok&eacute;mon&trade; farming setup designed for Pok&eacute;bank&trade; transfers</title>
 <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Oswald" rel="stylesheet" />
+<link href="http://cdn.jsdelivr.net/qtip2/3.0.3/jquery.qtip.min.css" rel="stylesheet" />
 <link href="styles.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="http://cdn.jsdelivr.net/qtip2/3.0.3/jquery.qtip.min.js"></script>
 <script src="main.js"></script>
 <script src="data.js"></script>
 </head>
@@ -76,13 +78,16 @@
 </fieldset>
 <fieldset>
 <legend>Nicknames</legend>
-<p><b>Note:</b> The <span class="nick">×</span> character is used to signify the multiply symbol available in the first column of the fourth row of the naming screen, just above the dash (<span class="nick">-</span>) symbol. The <span class="nick">&blank;</span> character is used to signify the whitespace available in the last column of the third row, below the letter R and to the right of the letter Z. In case of any doubts please refer to this reconstruction of the naming screen with your browser's font:</p>
+<p><b>Note:</b> The <span class="nick">×</span> character is used to signify the multiply symbol available in the first column of the fourth row of the naming screen, just above the dash (<span class="nick">-</span>) symbol. The <span class="nick">&blank;</span> character is used to signify the whitespace available in the last column of the third row, below the letter R and to the right of the letter Z. Additionally, all special characters are colored red. In case of any doubts please refer to this reconstruction of the naming screen with your browser's font:</p>
+<div id="big-naming-area">
 <div id="naming" class="nick"></div><br />
-Nickname 1: <span id="n1" class="nick"><sup>M</sup><sub>N</sub>&blank;×LuKypLS</span><br />
+Nickname 1: <span id="n1" class="nick"></span><br />
 Nickname 2: <span id="n2" class="nick"></span><br />
 Nickname 3: <span id="n3" class="nick"></span><br />
 Nickname 4: <span class="gray nick">&lt;insert nickname of the resulting pok&eacute;mon&gt;</span><br />
 Nickname 5: <span class="gray nick">&lt;insert the name of the OT&gt; (GF for a legit Mew)</span><br />
+</div>
+<p class="red">Warning: NEVER, UNDER ANY CIRCUMSTANCES, TRANSFER POK&Eacute;MON WITH OT NAMES LONGER THAN 7 CHARACTERS. DON'T DO IT. IT'S BAD.</p>
 </fieldset>
 </div>
 </body>

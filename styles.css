@@ -53,10 +53,6 @@ p {
 	text-align: justify;
 }
 
-.note {
-	font-weight: bold;
-}
-
 #advanced-mode {
 	display: none;
 }
@@ -77,4 +73,13 @@ p {
 
 .special {
 	color: red;
+}
+
+.red {
+	color: red;
+	font-weight: bold;
+}
+
+#big-naming-area {
+	font-size: 30px;
 }
