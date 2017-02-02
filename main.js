@@ -9,6 +9,18 @@ function qError($el, msg){
 	$('*').qtip('show');
 }
 
+function pokehexIsAlphabet(c){
+	return (c >= 0x80 && c <= 0x99) || (c >= 0xA0 && c <= 0xB9);
+}
+
+function pokehexIsUpper(c){
+	return (c >= 0x80 && c <= 0x9F) || (c == 0x7F) || (c > 0xB9);
+}
+
+function pokehexIsLower(c){
+	return (c == 0x7F) || (c >= 0x9A);
+}
+
 function recalculate(){
 	console.log('recalculate');
 
@@ -67,10 +79,10 @@ function recalculate(){
 	}
 
 	var move = [
-		$('#move1').val(),
-		$('#move2').val(),
-		$('#move3').val(),
-		$('#move4').val()];
+		parseInt($('#move1').val()),
+		parseInt($('#move2').val()),
+		parseInt($('#move3').val()),
+		parseInt($('#move4').val())];
 
 	if(move[0] == 0){
 		qError($('#move1'), 'A Pok&eacute;mon can\'t have no first move');
@@ -102,21 +114,121 @@ function recalculate(){
 		return;
 	}
 
+	var monID = parseInt($('#mon-id').val());
+
 	data = [];
 
 	data[0] = [];
-	data[0][0] = $('#mon-id').val();
+	data[0][0] = monID;
 	data[0][1] = move[0];
 	data[0][2] = move[1];
 	data[0][3] = move[2];
 	data[0][4] = move[3];
 
 	data[1] = [];
-	data[1][0] = (dv.atk << 4) | dv.def;
-	data[1][1] = (dv.spd << 4) | dv.spc;
+	data[1][0] = (DVs.atk << 4) | DVs.def;
+	data[1][1] = (DVs.spd << 4) | DVs.spc;
 	data[1][2] = lvl;
-	data[1][3] = otid >> 8;
-	data[1][4] = otid & 0xFF;
+	if(otid === null){
+		data[1][3] = null;
+		data[1][4] = null;
+	}else{
+		data[1][3] = otid >> 8;
+		data[1][4] = otid & 0xFF;
+	}
+
+	data[2] = [];
+	data[2][0] = null;
+	data[2][1] = null;
+	data[2][2] = parseInt($('#nature').val());
+
+	console.log(data);
+
+	var nicks = [];
+
+	for(var i = 0;i < 3;i++){
+		var lastchar = 0x80;
+		var nick = '';
+
+		for(var j = 0;j < data[i].length;j++){
+			if(data[i][j] === null){
+				nick += textConvert(lastchar);
+				nick += textConvert(lastchar);
+				continue;
+			}
+
+			var minselects = 999;
+
+			// determine the lowest possible amount of selects
+			for(var cS in charmap){
+				c = parseInt(cS);
+				for(var dS in charmap){
+					d = parseInt(dS);
+					if(((c * 2 + d) & 0xFF) == data[i][j]){
+						var selects = 0;
+						if(pokehexIsUpper(lastchar) != pokehexIsUpper(c)){
+							selects++;
+						}
+
+						if(pokehexIsUpper(c) != pokehexIsUpper(d)){
+							selects++;
+						}
+
+						if(selects < minselects){
+							minselects = selects;
+						}
+					}
+				}
+			}
+
+			if(minselects == 999) return;
+
+			var maxabet = -1;
+			var combination = [];
+
+			for(var cS in charmap){
+				c = parseInt(cS);
+				for(var dS in charmap){
+					d = parseInt(dS);
+					if(((c * 2 + d) & 0xFF) == data[i][j]){
+						var selects = 0;
+						if(pokehexIsUpper(lastchar) != pokehexIsUpper(c)){
+							selects++;
+						}
+
+						if(pokehexIsUpper(c) != pokehexIsUpper(d)){
+							selects++;
+						}
+
+						if(selects > minselects) continue;
+
+						var abet = 0;
+						if(pokehexIsAlphabet(c)) abet++;
+						if(pokehexIsAlphabet(d)) abet++;
+						
+						if(abet > maxabet){
+							maxabet = abet;
+							combination = [c, d];
+						}
+
+						if(abet == 2) break;
+					}
+				}
+			}
+
+			if(maxabet == -1) return;
+
+			nick += textConvert(combination[0]);
+			nick += textConvert(combination[1]);
+			lastchar = combination[1];
+		}
+
+		nicks[i] = nick;
+	}
+
+	$('#n1').html(nicks[0]);
+	$('#n2').html(nicks[1]);
+	$('#n3').html(nicks[2]);
 }
 
 function reseat(){
