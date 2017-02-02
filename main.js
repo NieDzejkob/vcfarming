@@ -102,7 +102,21 @@ function recalculate(){
 		return;
 	}
 
-	console.log('done');
+	data = [];
+
+	data[0] = [];
+	data[0][0] = $('#mon-id').val();
+	data[0][1] = move[0];
+	data[0][2] = move[1];
+	data[0][3] = move[2];
+	data[0][4] = move[3];
+
+	data[1] = [];
+	data[1][0] = (dv.atk << 4) | dv.def;
+	data[1][1] = (dv.spd << 4) | dv.spc;
+	data[1][2] = lvl;
+	data[1][3] = otid >> 8;
+	data[1][4] = otid & 0xFF;
 }
 
 function reseat(){
@@ -122,6 +136,7 @@ $(function(){
 		var options = '';
 		var sort = $('input[name=mon-id-sort]:checked').val();
 		for(var i = 0;i < order[sort].length;i++){
+			if(order[sort][i] == '...') continue;
 			var monId = order.internal.indexOf(order[sort][i]) + 1;
 			options += '<option value="' + monId + (id == monId ? '" selected>' : '">') + order[sort][i] + '</option>';
 		}
