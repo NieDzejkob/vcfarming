@@ -138,8 +138,8 @@ function recalculate(){
 	}
 
 	data[2] = [];
-	data[2][0] = null;
-	data[2][1] = null;
+	data[2][0] = 0x80;
+	data[2][1] = 0x84;
 	data[2][2] = parseInt($('#nature').val());
 
 	console.log(data);
