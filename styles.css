@@ -58,7 +58,7 @@ p {
 }
 
 .gray {
-	color: #333;
+	color: #777;
 }
 
 .nick {
@@ -68,7 +68,7 @@ p {
 	background-color: rgba(0, 0, 0, 0.04);
 	border-radius: 3px;
 	display: inline-block;
-	font-family: 'Courier New';
+	font-family: monospace;
 }
 
 .special {
