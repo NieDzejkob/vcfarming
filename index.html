@@ -53,14 +53,14 @@
 <option value="23">Careful</option>
 <option value="24">Quirky</option>
 </select><br />
-<label><span class="label">OT ID</span><input type="text" id="otid"  maxlength="5" /></label>Leave empty for any TID (easier nicknames). Enter 22796 for a legit&trade; Mew<br />
+<label><span class="label">OT ID</span><input type="text" id="otid" maxlength="5" /></label>Leave empty for any TID (easier nicknames). Enter 22796 for a legit&trade; Mew<br />
 </fieldset>
 <fieldset>
 <legend>DVs (generation I and II equivalent of IVs)</legend>
 <label><input type="checkbox" id="adv" />Advanced mode</label><br />
 <label><input type="checkbox" id="shiny" />Shiny</label>
 <div id="advanced-mode">
-<p><b>Warning:</b>The Pok&eacute;bank only uses DVs for determining shininess and generates new IVs during the transfer (probably because special is split into special attack and special defense, there is a separate value for HP and they range from 0 to 31 instead of 0 to 15 generation III onwards). The option for configuring DVs is provided in case Nintendo/Game Freak changes the formulas or you want to use this setup for other purposes than Pok&eacute;bank. Also, the Pok&eacute;bank uses a similar, but not the same method as generation II games for determining shininess. Only the 10/10/10/10 combination works in both.</p>
+<p><b>Warning:</b>The Pok&eacute;bank only uses DVs for determining shininess and generates new IVs during the transfer. The option for configuring DVs is provided in case Nintendo/Game Freak changes the formulas or you want to use this setup for other purposes than Pok&eacute;bank. Also, the Pok&eacute;bank uses a similar, but not the same method as generation II games for determining shininess. Only the 10/10/10/10 combination works in both.</p>
 <span class="label">Attack DV</span><input type="number" id="atk-dv" min="0" max="15" value="15" /><br />
 <span class="label">Defense DV</span><input type="number" id="def-dv" min="0" max="15" value="15" /><br />
 <span class="label">Speed DV</span><input type="number" id="spd-dv" min="0" max="15" value="15" /><br />
@@ -76,14 +76,14 @@
 </fieldset>
 <fieldset>
 <legend>Nicknames</legend>
-<p><b>Note:</b> The <span class="nick">×</span> character is used to signify the multiply symbol available in the first column of the fourth row of the naming screen, just above the dash (<span class="nick">-</span>) symbol. The <span class="nick">&blank;</span> character is used to signify the whitespace available in the last column of the third row, below the letter R and to the right of the letter Z. Additionally, all special characters are colored red. In case of any doubts please refer to this reconstruction of the naming screen with your browser's font:</p>
+<p><b>Note:</b> All special characters are colored red. In case of any doubts please refer to this reconstruction of the naming screen with your browser's font:</p>
 <div id="big-naming-area">
 <div id="naming" class="nick"></div><br />
 Nickname 1: <span id="n1" class="nick"></span><br />
 Nickname 2: <span id="n2" class="nick"></span><br />
 Nickname 3: <span id="n3" class="nick"></span><br />
 Nickname 4: <span class="gray nick">&lt;insert nickname of the resulting pok&eacute;mon&gt;</span><br />
-Nickname 5: <span class="gray nick">&lt;insert the name of the OT&gt; (GF for a legit Mew)</span><br />
+Nickname 5: <span class="gray nick">&lt;insert the name of the OT&gt; (GF for a legit&tm; Mew)</span><br />
 </div>
 <p class="red">Warning: NEVER, UNDER ANY CIRCUMSTANCES, TRANSFER POK&Eacute;MON WITH OT NAMES LONGER THAN 7 CHARACTERS. DON'T DO IT. IT'S BAD. THE WAY GENERATION 1 GAMES STORE THIS DATA WILL MAKE IT A LONG, UNTERMINATED NAME WHICH WILL CERTAINLY BREAK SOMETHING.</p>
 </fieldset>
